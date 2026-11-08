@@ -71,7 +71,8 @@ function draw() {
         rect(x, y, squareSize, squareSize);
       }
     }
-}  
+}
+ 
 
 Através do uso random, e da alteração dos valores rgb, criei uma maior variedade de cores. O ecrã divide-se em 4 partes:
 * lado esquerdo, parte superior: tons vermelhos 
@@ -82,11 +83,13 @@ Através do uso random, e da alteração dos valores rgb, criei uma maior varied
 Para a alteração da espessura dos quadrados usei esta parte do código original:
 
   strokeWeight(random(2,20));
-    circle(width/2, height/2, height/4);
+
+circle(width/2, height/2, height/4);
 
   }
 
 e com o auxílio do copilot fiz alterações para se adaptar à forma retangular:
+
 strokeWeight(random(2, 20));
 rect(x, y, squareSize, squareSize);
 
