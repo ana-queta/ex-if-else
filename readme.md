@@ -20,7 +20,7 @@ De seguida alterei o círculo para um retângulo e com o auxílio do copilot use
  * for (let x = 0; x < width; x += step) {
 São essenciais para a criação da grelha, pois o loop exterior percorre as linhas (de cima a baixo) e o loop interior percorre as colunas (esquerda para a direita). Nas posições existentes (x e y) é desenhado um quadrado.
 
- Para que as cores mudassem conforme a posição do rato, alterei o código do exemplo If/Else (veja o original abaixo).
+ Para que as cores mudassem conforme a posição do rato, alterei o código do exemplo If/Else (ver o original abaixo).
 
   function draw() {
     background(255);
@@ -44,19 +44,34 @@ São essenciais para a criação da grelha, pois o loop exterior percorre as lin
 
 para este:
 
-if (mouseX < width / 2) {
-  if (mouseY < height / 2) {
-    fill(random(120, 256), 0, 0);
-  } else {
-    fill(0, 0, random(120, 256));
-  }
-} else {
-  if (mouseY < height / 2) {
-    fill(0, random(120, 256), 0);
-  } else {
-    fill(random(120, 256), random(120, 256), 0);
-  }
-}
+function draw() {
+  background(250);
+
+    const squareSize = min(width, height) / 8;
+    const gap = squareSize / 4;
+    const step = squareSize + gap;
+
+    for (let y = 0; y < height; y += step) {
+      for (let x = 0; x < width; x += step) {
+        if (mouseX < width / 2) {
+          if (mouseY < height / 2) {
+            fill(random(120, 256), 0, 0);
+          } else {
+            fill(0, 0, random(120, 256));
+          }
+        } else {
+          if (mouseY < height / 2) {
+            fill(0, random(120, 256), 0);
+          } else {
+            fill(random(120, 256), random(120, 256), 0);
+          }
+        }
+
+        strokeWeight(random(2, 20));
+        rect(x, y, squareSize, squareSize);
+      }
+    }
+}  
 
 Através do uso random, e da alteração dos valores rgb, criei uma maior variedade de cores. O ecrã divide-se em 4 partes:
 * lado esquerdo, parte superior: tons vermelhos 
